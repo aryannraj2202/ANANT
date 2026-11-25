@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Satya: Hear the truth before you act</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6fb;--panel:#ffffff;--ink:#0a1830;--mut:#52637b;--line:#d6e0ec;--teal:#0e9f93;--saf:#e07b12;
+--g:#1a9e63;--a:#c98a0a;--r:#d93a4b;--dk:#071427;--dk2:#0d2038;--dkline:#1c3553;--dkt:#eaf2ff;--dkm:#8fa5c2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050e1d;--panel:#0b1c33;--ink:#eaf2ff;--mut:#8fa5c2;--line:#1c3553;--teal:#2dd4c4;--saf:#ff9a3c;--g:#2ecc82;--a:#f5b642;--r:#ff5d6c}}
+:root[data-theme="dark"]{--bg:#050e1d;--panel:#0b1c33;--ink:#eaf2ff;--mut:#8fa5c2;--line:#1c3553;--teal:#2dd4c4;--saf:#ff9a3c;--g:#2ecc82;--a:#f5b642;--r:#ff5d6c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Sora","Segoe UI",system-ui,sans-serif;line-height:1.6;font-size:16px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0;flex-wrap:wrap;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo span{font-family:"Instrument Serif",Georgia,serif;font-size:30px;line-height:1}
+nav a{margin-left:22px;text-decoration:none;font-size:14px;color:var(--mut)}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:44px 0 70px}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(44px,7vw,76px);line-height:1.02;margin:0 0 18px;letter-spacing:-.01em}
+h1 em{color:var(--saf)}
+.lead{font-size:18px;color:var(--mut);max-width:30em;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:12px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:15px}
+.btn.o{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.demo{background:var(--dk);color:var(--dkt);border-radius:26px;padding:22px;border:1px solid var(--dkline)}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tabs button{flex:1;font:inherit;font-size:13px;padding:9px;border-radius:10px;border:1px solid var(--dkline);background:transparent;color:var(--dkm);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--dk2);color:var(--dkt);border-color:var(--teal)}
+.wave{display:flex;align-items:center;gap:3px;height:70px;margin:6px 0 14px}
+.wave i{flex:1;border-radius:3px;background:var(--dkm);transition:height .5s,background .3s}
+.rw{display:flex;justify-content:center;position:relative}
+.rw .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rw .n b{font-size:40px;line-height:1}
+.rw .n small{font-size:12px;color:var(--dkm)}
+.dv{text-align:center;font-weight:600;font-size:19px;margin:8px 0 2px}
+.dm{text-align:center;font-size:13px;color:var(--dkm);margin:0}
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(32px,4.5vw,46px);line-height:1.1;margin:0 0 12px}
+.sec-p{color:var(--mut);max-width:38em;margin:0 0 32px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 18px;font-size:14px;color:var(--mut)}
+.steps li::before{content:counter(s);font-family:"Instrument Serif",serif;font-size:34px;color:var(--saf);display:block;line-height:1;margin-bottom:8px}
+.steps b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+.states{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;border-top-width:4px}
+.st b{display:block;font-size:17px}
+.st .rng{font-size:13px;color:var(--mut)}
+.st p{font-size:14px;color:var(--mut);margin:10px 0 0}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cols h3{margin:0 0 6px;font-size:17px}
+.cols p{margin:0;color:var(--mut);font-size:15px}
+.honest{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.honest div{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;font-size:14px;color:var(--mut)}
+.honest b{display:block;color:var(--ink);margin-bottom:6px}
+.honest ul{margin:0;padding-left:18px}
+footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--mut);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.steps,.states,.cols,.honest{grid-template-columns:1fr}nav a{margin:0 16px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <a class="logo" href="#top" aria-label="Satya home">
+  <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+   <path d="M20 3 35 9v11c0 9-7 15-15 18C12 35 5 29 5 20V9z" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round"/>
+   <rect x="11" y="18" width="2.8" height="6" rx="1.4" fill="var(--teal)"/>
+   <rect x="15.5" y="14" width="2.8" height="14" rx="1.4" fill="var(--teal)"/>
+   <rect x="20" y="10" width="2.8" height="22" rx="1.4" fill="var(--saf)"/>
+   <rect x="24.5" y="14" width="2.8" height="14" rx="1.4" fill="var(--teal)"/>
+   <rect x="29" y="18" width="2.8" height="6" rx="1.4" fill="var(--teal)"/>
+  </svg>
+  <span>Satya</span>
+ </a>
+ <nav><a href="#how">How it works</a><a href="#results">Results</a><a href="#why">Why Satya</a><a href="#status">Status</a></nav>
+</header>
+
+<div class="hero" id="top">
+ <div>
+  <h1>Hear the truth <em>before</em> you act.</h1>
+  <p class="lead">Satya checks voice notes and calls for AI cloning, right on your phone. It gives you a clear score, a short reason, and what to do next, before money or an OTP moves.</p>
+  <div class="btns"><a class="btn" href="#how">See how it works</a><a class="btn o" href="#status">Where we are</a></div>
+ </div>
+ <div class="demo" aria-label="Interactive example">
+  <div class="tabs">
+   <button id="tReal" aria-pressed="true">A real voice</button>
+   <button id="tFake" aria-pressed="false">A cloned voice</button>
+  </div>
+  <div class="wave" id="wave" aria-hidden="true"></div>
+  <div class="rw">
+   <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true"><g transform="rotate(-90 75 75)"><circle cx="75" cy="75" r="64" fill="none" stroke="#1c3553" stroke-width="10"/><circle id="arc" cx="75" cy="75" r="64" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="402.1" stroke-dashoffset="402.1" style="transition:stroke-dashoffset .8s ease,stroke .3s"/></g></svg>
+   <div class="n"><b id="sc">0</b><small>out of 100</small></div>
+  </div>
+  <div class="dv" id="dv"></div>
+  <p class="dm" id="dm"></p>
+ </div>
+</div>
+
+<section id="how">
+ <h2>Four steps, all on your phone</h2>
+ <p class="sec-p">Your audio is never uploaded. Satya checks it locally and keeps only the result.</p>
+ <ol class="steps">
+  <li><b>Listen</b>Pick a voice note, or turn on call monitoring. Audio is cleaned and cut into short windows.</li>
+  <li><b>Analyze</b>Small on-device models look at voice texture, rhythm, background noise, and video frames.</li>
+  <li><b>Combine</b>No single check decides. The evidence is merged into one score from 0 to 100.</li>
+  <li><b>Advise</b>You get a colour, a short reason, and a safe next step, such as calling back on a known number.</li>
+ </ol>
+</section>
+
+<section id="results">
+ <h2>A result you understand in seconds</h2>
+ <p class="sec-p">Three states, not a pile of percentages. The middle state exists on purpose, so Satya never pretends to be sure when it isn’t.</p>
+ <div class="states">
+  <div class="st" style="border-top-color:var(--g)"><b style="color:var(--g)">Low risk</b><span class="rng">Score 85 to 100</span><p>Human-like voice. Carry on, and stay aware.</p></div>
+  <div class="st" style="border-top-color:var(--a)"><b style="color:var(--a)">Uncertain</b><span class="rng">Score 50 to 84</span><p>Mixed evidence. If the request is sensitive, confirm who it is first.</p></div>
+  <div class="st" style="border-top-color:var(--r)"><b style="color:var(--r)">High risk</b><span class="rng">Score below 50</span><p>Several signs of a synthetic voice. Do not send money or share an OTP.</p></div>
+ </div>
+</section>
+
+<section id="why">
+ <h2>Why Satya is different</h2>
+ <p class="sec-p">Other tools exist. Satya is built around three promises.</p>
+ <div class="cols">
+  <div><h3>Private by design</h3><p>Analysis runs on the device. Your family’s voice notes are not the product.</p></div>
+  <div><h3>Warns during the call</h3><p>The score updates every second or two, so you hear the warning while the caller is still talking.</p></div>
+  <div><h3>Explains itself</h3><p>Tap Why? to see the signals behind a result. A warning, never an accusation.</p></div>
+ </div>
+</section>
+
+<section id="status">
+ <h2>Honest about where we are</h2>
+ <p class="sec-p">Satya is a hackathon project. These are our plans and goals, not measured results.</p>
+ <div class="honest">
+  <div><b>Building now</b><ul><li>Voice-note screening</li><li>On-device model</li><li>Score and Why? screens</li></ul></div>
+  <div><b>Validating on device</b><ul><li>Accuracy and false alarms</li><li>Speed and battery use</li><li>Different phones and codecs</li></ul></div>
+  <div><b>Still researching</b><ul><li>Live phone-call audio access</li><li>Third-party calling apps</li><li>Phone-maker differences</li></ul></div>
+ </div>
+</section>
+
+<footer>
+ <div><b>Satya</b> by Team ANANT, NIST University. Problem statement HK26-PS-31, Open Innovation.</div>
+ <div>Project name: Authenticity Guard + DeepVoice Sentinel</div>
+</footer>
+</div>
+
+<script>
+var ST={
+ real:{s:92,c:"var(--g)",v:"Low risk",m:"Natural pitch and room noise. Carry on.",flat:false},
+ fake:{s:23,c:"var(--r)",v:"High risk",m:"Flat rhythm, synthetic texture. Do not send money.",flat:true}
+};
+var $=function(i){return document.getElementById(i)};
+var wave=$("wave");
+for(var i=0;i<34;i++){wave.appendChild(document.createElement("i"))}
+function pick(k){
+ var d=ST[k],bars=wave.children;
+ $("tReal").setAttribute("aria-pressed",k==="real");
+ $("tFake").setAttribute("aria-pressed",k==="fake");
+ for(var i=0;i<bars.length;i++){
+  var h=d.flat?30+((i%2)*4):12+Math.abs(Math.sin(i*.6)*Math.cos(i*.23))*80+(i*7%11);
+  bars[i].style.height=h+"%";bars[i].style.background=d.c;
+ }
+ var arc=$("arc");arc.style.stroke=d.c;arc.style.strokeDashoffset=402.1*(1-d.s/100);
+ $("dv").textContent=d.v;$("dv").style.color=d.c;$("dm").textContent=d.m;
+ var n=0,t=setInterval(function(){n+=Math.ceil(d.s/18);if(n>=d.s){n=d.s;clearInterval(t)}$("sc").textContent=n},40);
+}
+$("tReal").addEventListener("click",function(){pick("real")});
+$("tFake").addEventListener("click",function(){pick("fake")});
+pick("real");
+</script>
+</body>
+</html>
